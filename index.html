@@ -21,27 +21,11 @@
             --gradient-3: linear-gradient(135deg, #00D4FF, #0077FF);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        body {
-            background-color: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
+        /* Header */
         header {
             background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
@@ -52,23 +36,14 @@
             padding: 15px 0;
             box-shadow: 0 4px 30px rgba(0, 119, 255, 0.15);
         }
-
         .header-container {
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
         }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin: 0 20px; }
         nav ul li a {
             color: var(--white);
             text-decoration: none;
@@ -77,25 +52,49 @@
             position: relative;
             font-size: 1rem;
         }
-
-        nav ul li a:hover {
-            color: var(--accent-blue);
-        }
-
+        nav ul li a:hover { color: var(--accent-blue); }
         nav ul li a::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
+            width: 0; height: 2px;
+            bottom: -5px; left: 0;
             background: var(--gradient-1);
             transition: width 0.3s;
         }
+        nav ul li a:hover::after { width: 100%; }
 
-        nav ul li a:hover::after {
-            width: 100%;
+        /* Language Switcher */
+        .lang-switcher {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 119, 255, 0.1);
+            border: 1px solid rgba(0, 119, 255, 0.3);
+            border-radius: 30px;
+            padding: 5px 8px;
         }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .lang-btn.active {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+        .lang-btn:hover:not(.active) { color: var(--accent-blue); }
+        .lang-divider { color: rgba(0, 119, 255, 0.4); font-size: 0.8rem; }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -103,9 +102,11 @@
             color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
+            position: absolute;
+            left: 20px;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
@@ -116,26 +117,14 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 10% 20%, rgba(0, 119, 255, 0.1) 0%, transparent 50%),
                         radial-gradient(circle at 90% 80%, rgba(123, 104, 238, 0.1) 0%, transparent 50%);
             z-index: 1;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
+        .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
@@ -146,14 +135,7 @@
             color: transparent;
             letter-spacing: 1px;
         }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            color: #e0e0e0;
-            font-weight: 300;
-        }
-
+        .hero p { font-size: 1.5rem; margin-bottom: 40px; color: #e0e0e0; font-weight: 300; }
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -162,958 +144,284 @@
             font-weight: 600;
             transition: all 0.3s;
             margin: 0 10px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
             font-size: 1rem;
         }
+        .btn-primary { background: var(--gradient-1); color: var(--white); box-shadow: 0 10px 30px rgba(0, 119, 255, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 119, 255, 0.4); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--accent-blue); }
+        .btn-outline:hover { background: var(--accent-blue); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3); }
 
-        .btn-primary {
-            background: var(--gradient-1);
-            color: var(--white);
-            box-shadow: 0 10px 30px rgba(0, 119, 255, 0.3);
-        }
+        .floating-element { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.15; z-index: 0; }
+        .element-1 { width: 300px; height: 300px; background: var(--accent-blue); top: 10%; left: 5%; animation: float 15s infinite ease-in-out; }
+        .element-2 { width: 200px; height: 200px; background: var(--violet); bottom: 15%; right: 10%; animation: float 12s infinite ease-in-out reverse; }
+        .element-3 { width: 150px; height: 150px; background: var(--pink); top: 50%; right: 20%; animation: float 10s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(10deg); } }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 119, 255, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--accent-blue);
-        }
-
-        .btn-outline:hover {
-            background: var(--accent-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Floating elements */
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        .element-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--accent-blue);
-            top: 10%;
-            left: 5%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        .element-2 {
-            width: 200px;
-            height: 200px;
-            background: var(--violet);
-            bottom: 15%;
-            right: 10%;
-            animation: float 12s infinite ease-in-out reverse;
-        }
-
-        .element-3 {
-            width: 150px;
-            height: 150px;
-            background: var(--pink);
-            top: 50%;
-            right: 20%;
-            animation: float 10s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; position: relative; }
         .section-title h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 3rem; font-weight: 700; margin-bottom: 15px;
+            background: var(--gradient-1); -webkit-background-clip: text; background-clip: text; color: transparent;
         }
+        .section-title p { color: #b0b0b0; max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
 
-        .section-title p {
-            color: #b0b0b0;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--dark-blue);
-            position: relative;
-        }
-
+        /* About */
+        .about { background-color: var(--dark-blue); position: relative; }
         .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 80% 20%, rgba(123, 104, 238, 0.05) 0%, transparent 50%),
                         radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
             z-index: 0;
         }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-profile {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .about-image {
-            flex-shrink: 0;
-        }
-
+        .about-content { display: flex; flex-direction: column; position: relative; z-index: 1; }
+        .about-profile { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
+        .about-image { flex-shrink: 0; }
         .about-image img {
-            width: 200px;
-            height: 200px;
-            border-radius: 20px;
+            width: 200px; height: 200px; border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border: 5px solid rgba(0, 119, 255, 0.2);
-            object-fit: cover;
+            border: 5px solid rgba(0, 119, 255, 0.2); object-fit: cover;
         }
+        .about-text { flex-grow: 1; }
+        .about-text h3 { font-size: 2rem; margin-bottom: 15px; color: var(--accent-blue); font-weight: 600; }
+        .about-text p { margin-bottom: 15px; color: #d0d0d0; font-size: 1.1rem; }
 
-        .about-text {
-            flex-grow: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .about-text p {
-            margin-bottom: 15px;
-            color: #d0d0d0;
-            font-size: 1.1rem;
-        }
-
-        /* Education & Certificate Styles */
-        .education-info, .certificates-info {
-            margin: 30px 0;
-        }
-
+        .education-info, .certificates-info { margin: 30px 0; }
         .education-info h4, .certificates-info h4 {
-            color: var(--accent-blue);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
         }
-
         .education-card {
-            background: rgba(0, 31, 63, 0.5);
-            border-radius: 15px;
-            padding: 20px;
-            border-left: 4px solid var(--accent-blue);
-            margin-bottom: 20px;
+            background: rgba(0, 31, 63, 0.5); border-radius: 15px; padding: 20px;
+            border-left: 4px solid var(--accent-blue); margin-bottom: 20px;
         }
-
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .edu-header h5 {
-            color: var(--white);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
+        .edu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .edu-header h5 { color: var(--white); font-size: 1.3rem; font-weight: 600; margin: 0; }
         .edu-date {
-            background: rgba(0, 119, 255, 0.15);
-            color: var(--accent-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            background: rgba(0, 119, 255, 0.15); color: var(--accent-blue);
+            padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
         }
-
-        .education-card p {
-            margin: 8px 0;
-            color: #d0d0d0;
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
+        .education-card p { margin: 8px 0; color: #d0d0d0; }
+        .certificates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .certificate-item {
-            background: rgba(0, 31, 63, 0.5);
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s;
-            border: 1px solid rgba(0, 119, 255, 0.2);
+            background: rgba(0, 31, 63, 0.5); border-radius: 15px; padding: 20px;
+            transition: all 0.3s; border: 1px solid rgba(0, 119, 255, 0.2);
         }
+        .certificate-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2); border-color: rgba(0, 119, 255, 0.3); }
+        .certificate-item h5 { color: var(--white); font-size: 1.1rem; margin: 0 0 15px 0; font-weight: 600; }
+        .cert-details { display: flex; justify-content: space-between; align-items: center; }
+        .cert-issuer { color: var(--pink); font-weight: 500; }
+        .cert-date { background: rgba(0, 119, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
 
-        .certificate-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2);
-            border-color: rgba(0, 119, 255, 0.3);
-        }
+        .skills { margin-top: 20px; }
+        .skills h4 { font-size: 1.5rem; margin-bottom: 25px; color: var(--white); font-weight: 600; }
+        .skill-item { margin-bottom: 25px; }
+        .skill-name { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 500; }
+        .skill-bar { height: 12px; background-color: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+        .skill-level { height: 100%; border-radius: 10px; width: 0; transition: width 1.5s ease-in-out; position: relative; }
+        .skill-level::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-1); border-radius: 10px; }
 
-        .certificate-item h5 {
-            color: var(--white);
-            font-size: 1.1rem;
-            margin: 0 0 15px 0;
-            font-weight: 600;
-        }
-
-        .cert-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cert-issuer {
-            color: var(--pink);
-            font-weight: 500;
-        }
-
-        .cert-date {
-            background: rgba(0, 119, 255, 0.15);
-            color: var(--accent-blue);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .skills {
-            margin-top: 20px;
-        }
-
-        .skills h4 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        .skill-item {
-            margin-bottom: 25px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .skill-bar {
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-level {
-            height: 100%;
-            border-radius: 10px;
-            width: 0;
-            transition: width 1.5s ease-in-out;
-            position: relative;
-        }
-
-        .skill-level::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-1);
-            border-radius: 10px;
-        }
-
-        /* Projects Section */
-        .projects {
-            background-color: var(--black);
-            position: relative;
-        }
-
+        /* Projects */
+        .projects { background-color: var(--black); position: relative; }
         .projects::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
                         radial-gradient(circle at 80% 70%, rgba(255, 107, 157, 0.03) 0%, transparent 50%);
             z-index: 0;
         }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; position: relative; z-index: 1; }
         .project-card {
             background: linear-gradient(145deg, rgba(0, 31, 63, 0.6), rgba(0, 31, 63, 0.4));
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s;
+            backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); transition: all 0.4s;
             border: 1px solid rgba(0, 119, 255, 0.1);
         }
-
-        .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 119, 255, 0.2);
-            border-color: rgba(0, 119, 255, 0.3);
-        }
-
+        .project-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0, 119, 255, 0.2); border-color: rgba(0, 119, 255, 0.3); }
         .project-img {
-            height: 220px;
-            background: var(--gradient-2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
+            height: 220px; background: var(--gradient-2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.5rem; color: var(--white); position: relative; overflow: hidden;
         }
-
         .project-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 119, 255, 0.2), rgba(123, 104, 238, 0.2));
-            z-index: 0;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(0,119,255,0.2), rgba(123,104,238,0.2)); z-index: 0;
         }
+        .project-img i { position: relative; z-index: 1; }
+        .project-content { padding: 30px; }
+        .project-content h3 { font-size: 1.7rem; margin-bottom: 15px; color: var(--white); font-weight: 600; }
+        .project-content p { color: #b0b0b0; margin-bottom: 25px; font-size: 1rem; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+        .tag { background: rgba(0,119,255,0.15); color: var(--accent-blue); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(0,119,255,0.2); }
+        .project-links { display: flex; gap: 20px; }
+        .project-links a { color: var(--accent-blue); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .project-links a:hover { color: var(--white); transform: translateX(5px); }
 
-        .project-img i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
-        .project-content h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        .project-content p {
-            color: #b0b0b0;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .tag {
-            background: rgba(0, 119, 255, 0.15);
-            color: var(--accent-blue);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid rgba(0, 119, 255, 0.2);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .project-links a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .project-links a:hover {
-            color: var(--white);
-            transform: translateX(5px);
-        }
-
-        /* Competitions Section */
-        .competitions {
-            background-color: var(--dark-blue);
-            position: relative;
-        }
-
+        /* Competitions */
+        .competitions { background-color: var(--dark-blue); position: relative; }
         .competitions::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 70%, rgba(0, 119, 255, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(255, 107, 157, 0.05) 0%, transparent 50%);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(0,119,255,0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(255,107,157,0.05) 0%, transparent 50%);
             z-index: 0;
         }
-
-        .competitions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
+        .competitions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; position: relative; z-index: 1; }
         .competition-card {
-            background: linear-gradient(145deg, rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.5));
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s;
-            border: 1px solid rgba(0, 119, 255, 0.2);
-            display: flex;
-            flex-direction: column;
+            background: linear-gradient(145deg, rgba(0,31,63,0.7), rgba(0,31,63,0.5));
+            backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); transition: all 0.4s;
+            border: 1px solid rgba(0,119,255,0.2); display: flex; flex-direction: column;
         }
-
-        .competition-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 119, 255, 0.2);
-            border-color: rgba(0, 119, 255, 0.3);
-        }
-
+        .competition-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,119,255,0.2); border-color: rgba(0,119,255,0.3); }
         .competition-header {
-            padding: 30px;
-            background: var(--gradient-1);
-            position: relative;
-            overflow: hidden;
+            padding: 30px; background: var(--gradient-1); position: relative; overflow: hidden;
         }
-
         .competition-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            z-index: 0;
+            content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); z-index: 0;
         }
-
-        .competition-icon {
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .competition-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .competition-category {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 1;
-        }
-
-        .competition-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .competition-description {
-            color: #d0d0d0;
-            margin-bottom: 25px;
-            font-size: 1rem;
-            flex-grow: 1;
-        }
-
-        .competition-result {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .result-badge {
-            background: var(--gradient-2);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-right: 15px;
-        }
-
-        .result-year {
-            color: var(--accent-blue);
-            font-weight: 500;
-        }
-
-        .competition-links {
-            display: flex;
-            gap: 15px;
-        }
-
+        .competition-icon { font-size: 3rem; color: var(--white); margin-bottom: 15px; position: relative; z-index: 1; }
+        .competition-title { font-size: 1.8rem; font-weight: 700; color: var(--white); margin-bottom: 5px; position: relative; z-index: 1; }
+        .competition-category { font-size: 1rem; color: rgba(255,255,255,0.9); position: relative; z-index: 1; }
+        .competition-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .competition-description { color: #d0d0d0; margin-bottom: 25px; font-size: 1rem; flex-grow: 1; }
+        .competition-result { display: flex; align-items: center; margin-bottom: 20px; }
+        .result-badge { background: var(--gradient-2); color: var(--white); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; margin-right: 15px; }
+        .result-year { color: var(--accent-blue); font-weight: 500; }
+        .competition-links { display: flex; gap: 15px; }
         .competition-links a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            padding: 8px 16px;
-            border-radius: 8px;
-            background: rgba(0, 119, 255, 0.1);
+            color: var(--accent-blue); text-decoration: none; font-weight: 500;
+            display: flex; align-items: center; gap: 8px; transition: all 0.3s;
+            padding: 8px 16px; border-radius: 8px; background: rgba(0,119,255,0.1);
         }
+        .competition-links a:hover { background: rgba(0,119,255,0.2); color: var(--white); transform: translateX(5px); }
 
-        .competition-links a:hover {
-            background: rgba(0, 119, 255, 0.2);
-            color: var(--white);
-            transform: translateX(5px);
-        }
-
-        /* Experience Section */
-        .experience {
-            background-color: var(--black);
-            position: relative;
-        }
-
+        /* Experience */
+        .experience { background-color: var(--black); position: relative; }
         .experience::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 119, 255, 0.05) 0%, transparent 70%);
-            z-index: 0;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0,119,255,0.05) 0%, transparent 70%); z-index: 0;
         }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--gradient-1);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; z-index: 1; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background: var(--gradient-1); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
         .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background: var(--gradient-1);
-            border: 4px solid var(--white);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+            content: ''; position: absolute; width: 25px; height: 25px;
+            background: var(--gradient-1); border: 4px solid var(--white);
+            top: 15px; border-radius: 50%; z-index: 1; box-shadow: 0 0 15px rgba(0,119,255,0.5);
         }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--white);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--white);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--white);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--white) transparent transparent;
-        }
-
-        .right::after {
-            left: -12.5px;
-        }
-
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid var(--white); border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--white); }
+        .right::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid var(--white); border-width: 10px 10px 10px 0; border-color: transparent var(--white) transparent transparent; }
+        .right::after { left: -12.5px; }
         .timeline-content {
             padding: 25px 35px;
-            background: linear-gradient(145deg, rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.5));
-            backdrop-filter: blur(10px);
-            position: relative;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 119, 255, 0.2);
+            background: linear-gradient(145deg, rgba(0,31,63,0.7), rgba(0,31,63,0.5));
+            backdrop-filter: blur(10px); border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(0,119,255,0.2);
         }
+        .timeline-content h3 { color: var(--accent-blue); margin-bottom: 10px; font-size: 1.5rem; font-weight: 600; }
+        .timeline-content h4 { color: var(--white); margin-bottom: 5px; font-weight: 500; }
+        .timeline-content .date { color: var(--pink); font-size: 0.9rem; margin-bottom: 15px; font-weight: 500; }
+        .timeline-content ul { list-style-type: none; padding-left: 0; }
+        .timeline-content ul li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #d0d0d0; }
+        .timeline-content ul li::before { content: "▶"; position: absolute; left: 0; color: var(--accent-blue); }
 
-        .timeline-content h3 {
-            color: var(--accent-blue);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .timeline-content h4 {
-            color: var(--white);
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .timeline-content .date {
-            color: var(--pink);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .timeline-content ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .timeline-content ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            color: #d0d0d0;
-        }
-
-        .timeline-content ul li::before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--dark-blue);
-            position: relative;
-        }
-
+        /* Contact */
+        .contact { background-color: var(--dark-blue); position: relative; }
         .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 20%, rgba(123, 104, 238, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 30% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(123,104,238,0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 80%, rgba(0,212,255,0.05) 0%, transparent 50%);
             z-index: 0;
         }
-
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info {
-            width: 100%;
-            max-width: 700px;
-            text-align: center;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 35px;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-item i {
-            font-size: 1.8rem;
-            color: var(--accent-blue);
-            margin-right: 20px;
-            width: 40px;
-            text-align: center;
-        }
-
-        .contact-item p {
-            color: #d0d0d0;
-            font-size: 1.1rem;
-        }
+        .contact-content { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+        .contact-info { width: 100%; max-width: 700px; text-align: center; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 35px; color: var(--accent-blue); font-weight: 600; }
+        .contact-item { display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
+        .contact-item i { font-size: 1.8rem; color: var(--accent-blue); margin-right: 20px; width: 40px; text-align: center; }
+        .contact-item p, .contact-item a { color: #d0d0d0; font-size: 1.1rem; text-decoration: none; }
+        .contact-item a:hover { color: var(--accent-blue); }
 
         /* Footer */
-        footer {
-            background: linear-gradient(145deg, rgba(0, 31, 63, 0.9), rgba(0, 31, 63, 0.7));
-            padding: 50px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 119, 255, 0.05) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .social-links {
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
+        footer { background: linear-gradient(145deg, rgba(0,31,63,0.9), rgba(0,31,63,0.7)); padding: 50px 0; text-align: center; position: relative; }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(0,119,255,0.05) 0%, transparent 70%); z-index: 0; }
+        .social-links { margin-bottom: 30px; position: relative; z-index: 1; }
         .social-links a {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            margin: 0 12px;
-            color: var(--white);
-            transition: all 0.3s;
-            font-size: 1.2rem;
-            border: 1px solid rgba(0, 119, 255, 0.2);
+            display: inline-block; width: 50px; height: 50px; background: rgba(255,255,255,0.1);
+            border-radius: 50%; text-align: center; line-height: 50px; margin: 0 12px;
+            color: var(--white); transition: all 0.3s; font-size: 1.2rem; border: 1px solid rgba(0,119,255,0.2);
         }
+        .social-links a:hover { background: var(--gradient-1); transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,119,255,0.3); }
+        .copyright { color: #b0b0b0; font-size: 1rem; position: relative; z-index: 1; }
 
-        .social-links a:hover {
-            background: var(--gradient-1);
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 119, 255, 0.3);
-        }
-
-        .copyright {
-            color: #b0b0b0;
-            font-size: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2.5rem; }
+            .mobile-menu-btn { display: block; }
             nav ul {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 31, 63, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transform: translateY(-150%);
-                transition: transform 0.3s;
-                z-index: 100;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                position: fixed; top: 70px; left: 0; width: 100%;
+                background: rgba(0,31,63,0.95); backdrop-filter: blur(10px);
+                flex-direction: column; align-items: center; padding: 20px 0;
+                transform: translateY(-150%); transition: transform 0.3s;
+                z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             }
-
-            nav ul.active {
-                transform: translateY(0);
-            }
-
-            nav ul li {
-                margin: 15px 0;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid var(--white);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--white) transparent transparent;
-            }
-
-            .left::after, .right::after {
-                left: 21px;
-            }
-
-            .right {
-                left: 0%;
-            }
+            nav ul.active { transform: translateY(0); }
+            nav ul li { margin: 15px 0; }
+            .lang-switcher { right: 10px; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::before { left: 60px; border: medium solid var(--white); border-width: 10px 10px 10px 0; border-color: transparent var(--white) transparent transparent; }
+            .left::after, .right::after { left: 21px; }
+            .right { left: 0%; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
-                    <li><a href="#home">Ana Sayfa</a></li>
-                    <li><a href="#about">Hakkımda</a></li>
-                    <li><a href="#projects">Projeler</a></li>
-                    <li><a href="#competitions">Yarışmalar</a></li>
-                    <li><a href="#experience">Deneyim</a></li>
-                    <li><a href="#contact">İletişim</a></li>
+                    <li><a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                    <li><a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
+                    <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+                    <li><a href="#competitions" data-tr="Yarışmalar" data-en="Competitions">Yarışmalar</a></li>
+                    <li><a href="#experience" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
+                    <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
                 </ul>
             </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="floating-element element-1"></div>
         <div class="floating-element element-2"></div>
         <div class="floating-element element-3"></div>
-
         <div class="hero-content">
             <h1>Elif FIRINCI</h1>
             <p>AI & Machine Learning</p>
             <div>
-                <a href="#projects" class="btn btn-primary">Projelerimi Gör</a>
-                <a href="#contact" class="btn btn-outline">İletişime Geç</a>
+                <a href="#projects" class="btn btn-primary" data-tr="Projelerimi Gör" data-en="View My Projects">Projelerimi Gör</a>
+                <a href="#contact" class="btn btn-outline" data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>Hakkımda</h2>
-                <p>Yapay zeka ve makine öğrenimi alanında uzmanlaşmış, yenilikçi teknolojilere tutkulu bir yazılım geliştiriciyim.</p>
+                <h2 data-tr="Hakkımda" data-en="About Me">Hakkımda</h2>
+                <p data-tr="Yapay zeka ve makine öğrenimi alanında uzmanlaşmış, yenilikçi teknolojilere tutkulu bir yazılım geliştiriciyim." data-en="A software developer passionate about innovative technologies, specializing in artificial intelligence and machine learning.">Yapay zeka ve makine öğrenimi alanında uzmanlaşmış, yenilikçi teknolojilere tutkulu bir yazılım geliştiriciyim.</p>
             </div>
             <div class="about-content">
                 <div class="about-profile">
@@ -1123,121 +431,77 @@
                     <div class="about-text">
                         <h3>Elif FIRINCI</h3>
                         <p>AI & Machine Learning</p>
-                        <p>Yazılım mühendisliği öğrencisiyim ve özellikle yapay zekâ ile makine öğrenimi alanlarına ilgi duyuyorum. Öğrenmeye ve kendimi geliştirmeye sürekli açık biriyim.</p>
+                        <p data-tr="Yazılım mühendisliği öğrencisiyim ve özellikle yapay zekâ ile makine öğrenimi alanlarına ilgi duyuyorum. Öğrenmeye ve kendimi geliştirmeye sürekli açık biriyim." data-en="I am a software engineering student with a strong interest in artificial intelligence and machine learning. I am continuously open to learning and self-improvement.">Yazılım mühendisliği öğrencisiyim ve özellikle yapay zekâ ile makine öğrenimi alanlarına ilgi duyuyorum. Öğrenmeye ve kendimi geliştirmeye sürekli açık biriyim.</p>
                     </div>
                 </div>
-
                 <div class="about-text">
-                    <p>Python ve TensorFlow kullanarak projeler geliştiriyorum. Çalışmalarımda veri analizi, derin öğrenme, bilgisayarlı görü ve CNN tabanlı modeller üzerine odaklandım. Ayrıca Agile metodolojileri ile takım çalışması deneyimim var; çevik ortamlarda birlikte üretmeyi ve sürekli öğrenmeyi seviyorum.</p>
-                    <p>Amacım, edindiğim bilgi ve tecrübeleri gerçek hayat projelerine yansıtarak hem kendimi geliştirmek hem de değerli çözümler üretmek.</p>
+                    <p data-tr="Python ve TensorFlow kullanarak projeler geliştiriyorum. Çalışmalarımda veri analizi, derin öğrenme, bilgisayarlı görü ve CNN tabanlı modeller üzerine odaklandım. Ayrıca Agile metodolojileri ile takım çalışması deneyimim var; çevik ortamlarda birlikte üretmeyi ve sürekli öğrenmeyi seviyorum." data-en="I develop projects using Python and TensorFlow, focusing on data analysis, deep learning, computer vision, and CNN-based models. I also have experience with Agile methodologies and teamwork; I enjoy collaborating in agile environments and continuous learning.">Python ve TensorFlow kullanarak projeler geliştiriyorum. Çalışmalarımda veri analizi, derin öğrenme, bilgisayarlı görü ve CNN tabanlı modeller üzerine odaklandım. Ayrıca Agile metodolojileri ile takım çalışması deneyimim var; çevik ortamlarda birlikte üretmeyi ve sürekli öğrenmeyi seviyorum.</p>
+                    <p data-tr="Amacım, edindiğim bilgi ve tecrübeleri gerçek hayat projelerine yansıtarak hem kendimi geliştirmek hem de değerli çözümler üretmek." data-en="My goal is to reflect the knowledge and experience I've gained into real-world projects, both improving myself and producing valuable solutions.">Amacım, edindiğim bilgi ve tecrübeleri gerçek hayat projelerine yansıtarak hem kendimi geliştirmek hem de değerli çözümler üretmek.</p>
 
-                    <!-- Education Info -->
                     <div class="education-info">
-                        <h4><i class="fas fa-graduation-cap"></i> Eğitim Bilgilerim</h4>
+                        <h4><i class="fas fa-graduation-cap"></i> <span data-tr="Eğitim Bilgilerim" data-en="Education">Eğitim Bilgilerim</span></h4>
                         <div class="education-card">
                             <div class="edu-header">
                                 <h5>Halic University</h5>
-                                <span class="edu-date">Eyl 2021 - Devam Ediyor</span>
+                                <span class="edu-date" data-tr="Eyl 2021 - Devam Ediyor" data-en="Sep 2021 - Present">Eyl 2021 - Devam Ediyor</span>
                             </div>
-                            <p><strong>Bölüm:</strong> Yazılım Mühendisliği (İngilizce)</p>
-                            <p><strong>Burs:</strong> Tam Burslu</p>
+                            <p><strong data-tr="Bölüm:" data-en="Department:">Bölüm:</strong> <span data-tr="Yazılım Mühendisliği (İngilizce)" data-en="Software Engineering (English)">Yazılım Mühendisliği (İngilizce)</span></p>
+                            <p><strong data-tr="Burs:" data-en="Scholarship:">Burs:</strong> <span data-tr="Tam Burslu" data-en="Full Scholarship">Tam Burslu</span></p>
                             <p><strong>GPA:</strong> 3.18</p>
                         </div>
                     </div>
 
-                    <!-- Certificates -->
                     <div class="certificates-info">
-                        <h4><i class="fas fa-certificate"></i> Sertifikalar</h4>
+                        <h4><i class="fas fa-certificate"></i> <span data-tr="Sertifikalar" data-en="Certificates">Sertifikalar</span></h4>
                         <div class="certificates-grid">
                             <div class="certificate-item">
                                 <h5>Feature Engineering</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Miuul</span>
-                                    <span class="cert-date">Oca 2025</span>
-                                </div>
+                                <div class="cert-details"><span class="cert-issuer">Miuul</span><span class="cert-date" data-tr="Oca 2025" data-en="Jan 2025">Oca 2025</span></div>
                             </div>
                             <div class="certificate-item">
                                 <h5>Machine Learning</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Miuul</span>
-                                    <span class="cert-date">Oca 2025</span>
-                                </div>
+                                <div class="cert-details"><span class="cert-issuer">Miuul</span><span class="cert-date" data-tr="Oca 2025" data-en="Jan 2025">Oca 2025</span></div>
                             </div>
                             <div class="certificate-item">
                                 <h5>Image Processing</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Tech Istanbul</span>
-                                    <span class="cert-date">Kas 2024</span>
-                                </div>
+                                <div class="cert-details"><span class="cert-issuer">Tech Istanbul</span><span class="cert-date" data-tr="Kas 2024" data-en="Nov 2024">Kas 2024</span></div>
                             </div>
                             <div class="certificate-item">
                                 <h5>Python Programming for Data Science</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">Miuul</span>
-                                    <span class="cert-date">Eki 2024</span>
-                                </div>
+                                <div class="cert-details"><span class="cert-issuer">Miuul</span><span class="cert-date" data-tr="Eki 2024" data-en="Oct 2024">Eki 2024</span></div>
                             </div>
                             <div class="certificate-item">
-                                <h5>Yapay Zekaya Giriş</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">BTK Akademi</span>
-                                    <span class="cert-date">Tem 2024</span>
-                                </div>
+                                <h5 data-tr="Yapay Zekaya Giriş" data-en="Introduction to Artificial Intelligence">Yapay Zekaya Giriş</h5>
+                                <div class="cert-details"><span class="cert-issuer">BTK Akademi</span><span class="cert-date" data-tr="Tem 2024" data-en="Jul 2024">Tem 2024</span></div>
                             </div>
                             <div class="certificate-item">
-                                <h5>Yapay Zeka ve Algoritmalarına Giriş</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">BTK Akademi</span>
-                                    <span class="cert-date">Eyl 2022</span>
-                                </div>
+                                <h5 data-tr="Yapay Zeka ve Algoritmalarına Giriş" data-en="Introduction to AI and Its Algorithms">Yapay Zeka ve Algoritmalarına Giriş</h5>
+                                <div class="cert-details"><span class="cert-issuer">BTK Akademi</span><span class="cert-date" data-tr="Eyl 2022" data-en="Sep 2022">Eyl 2022</span></div>
                             </div>
                             <div class="certificate-item">
-                                <h5>Sıfırdan İleri Seviye Python Programlama</h5>
-                                <div class="cert-details">
-                                    <span class="cert-issuer">BTK Akademi</span>
-                                    <span class="cert-date">Tem 2022</span>
-                                </div>
+                                <h5 data-tr="Sıfırdan İleri Seviye Python Programlama" data-en="Python Programming from Zero to Advanced">Sıfırdan İleri Seviye Python Programlama</h5>
+                                <div class="cert-details"><span class="cert-issuer">BTK Akademi</span><span class="cert-date" data-tr="Tem 2022" data-en="Jul 2022">Tem 2022</span></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="skills">
-                        <h4>Yeteneklerim</h4>
+                        <h4 data-tr="Yeteneklerim" data-en="My Skills">Yeteneklerim</h4>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Python & TensorFlow</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-width="90%"></div>
-                            </div>
+                            <div class="skill-name"><span>Python & TensorFlow</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Machine Learning</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-width="90%"></div>
-                            </div>
+                            <div class="skill-name"><span>Machine Learning</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Data Analysis</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-width="90%"></div>
-                            </div>
+                            <div class="skill-name"><span>Data Analysis</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Deep Learning</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-width="80%"></div>
-                            </div>
+                            <div class="skill-name"><span>Deep Learning</span><span>80%</span></div>
+                            <div class="skill-bar"><div class="skill-level" data-width="80%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1245,184 +509,105 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
-                <h2>Projelerim</h2>
-                <p>Yapay zeka ve makine öğrenimi alanında geliştirdiğim yenilikçi projeler</p>
+                <h2 data-tr="Projelerim" data-en="My Projects">Projelerim</h2>
+                <p data-tr="Yapay zeka ve makine öğrenimi alanında geliştirdiğim yenilikçi projeler" data-en="Innovative projects I developed in the field of artificial intelligence and machine learning">Yapay zeka ve makine öğrenimi alanında geliştirdiğim yenilikçi projeler</p>
             </div>
             <div class="projects-grid">
+
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-microscope"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-microscope"></i></div>
                     <div class="project-content">
-                        <h3>Mantar ve Bitki Sınıflandırma</h3>
-                        <p>Evrişimli Sinir Ağları (CNN) kullanarak farklı mantar ve bitki türlerini tanımlayan bir görüntü sınıflandırma modeli.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">Gradio</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/mushrooms-plants-classification" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <h3 data-tr="Mantar ve Bitki Sınıflandırma" data-en="Mushroom & Plant Classification">Mantar ve Bitki Sınıflandırma</h3>
+                        <p data-tr="Evrişimli Sinir Ağları (CNN) kullanarak farklı mantar ve bitki türlerini tanımlayan bir görüntü sınıflandırma modeli." data-en="An image classification model that identifies different mushroom and plant species using Convolutional Neural Networks (CNN).">Evrişimli Sinir Ağları (CNN) kullanarak farklı mantar ve bitki türlerini tanımlayan bir görüntü sınıflandırma modeli.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">Gradio</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/mushrooms-plants-classification" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-smile"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-smile"></i></div>
                     <div class="project-content">
                         <h3>MoodBuddy</h3>
-                        <p>Özel CNN modeli kullanarak gerçek zamanlı duygu tespit sistemi. Canlı webcam akışlarından yüz ifadelerini analiz eder.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">CNN</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/MoodBuddy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p data-tr="Özel CNN modeli kullanarak gerçek zamanlı duygu tespit sistemi. Canlı webcam akışlarından yüz ifadelerini analiz eder." data-en="A real-time emotion detection system using a custom CNN model. Analyzes facial expressions from live webcam streams.">Özel CNN modeli kullanarak gerçek zamanlı duygu tespit sistemi. Canlı webcam akışlarından yüz ifadelerini analiz eder.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Flask</span><span class="tag">CNN</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/MoodBuddy" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-seedling"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-seedling"></i></div>
                     <div class="project-content">
-                        <h3>Domates Tazeliği Sınıflandırma</h3>
-                        <p>CNN tabanlı görüntü sınıflandırma sistemi ile domateslerin tazeliğini veya çeşitlerini sınıflandırma projesi. Özelleştirilmiş CNN, küçük CNN ve ResNet50 transfer öğrenme modelleri içerir.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">ResNet50</span>
-                            <span class="tag">Transfer Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/Classification_Freshness_Of_Tomatoes" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <h3 data-tr="Domates Tazeliği Sınıflandırma" data-en="Tomato Freshness Classification">Domates Tazeliği Sınıflandırma</h3>
+                        <p data-tr="CNN tabanlı görüntü sınıflandırma sistemi ile domateslerin tazeliğini veya çeşitlerini sınıflandırma projesi. Özelleştirilmiş CNN, küçük CNN ve ResNet50 transfer öğrenme modelleri içerir." data-en="A CNN-based image classification system for classifying the freshness or variety of tomatoes. Includes custom CNN, lightweight CNN, and ResNet50 transfer learning models.">CNN tabanlı görüntü sınıflandırma sistemi ile domateslerin tazeliğini veya çeşitlerini sınıflandırma projesi.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">ResNet50</span><span class="tag">Transfer Learning</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/Classification_Freshness_Of_Tomatoes" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-vial"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-vial"></i></div>
                     <div class="project-content">
-                        <h3>Cellenta - Uygulama Testi</h3>
-                        <p>Kurumsal yazılım sistemleri için manuel ve otomatik test senaryoları tasarladı ve uyguladı. Çevik metodolojilere uygun test süreçleri.</p>
-                        <div class="project-tags">
-                            <span class="tag">Test Otomasyonu</span>
-                            <span class="tag">Selenium</span>
-                            <span class="tag">Agile</span>
-                            <span class="tag">Scrum</span>
-                        </div>
+                        <h3 data-tr="Cellenta - Uygulama Testi" data-en="Cellenta - Application Testing">Cellenta - Uygulama Testi</h3>
+                        <p data-tr="Kurumsal yazılım sistemleri için manuel ve otomatik test senaryoları tasarladı ve uyguladı. Çevik metodolojilere uygun test süreçleri." data-en="Designed and implemented manual and automated test scenarios for enterprise software systems. Test processes aligned with Agile methodologies.">Kurumsal yazılım sistemleri için manuel ve otomatik test senaryoları tasarladı ve uyguladı.</p>
+                        <div class="project-tags"><span class="tag" data-tr="Test Otomasyonu" data-en="Test Automation">Test Otomasyonu</span><span class="tag">Selenium</span><span class="tag">Agile</span><span class="tag">Scrum</span></div>
                         <div class="project-links">
                             <a href="https://github.com/Aliduman02/Cellenta/tree/main/Web_App_Test"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://docs.google.com/document/d/1BbrMa5UdCdjPevd0sdnhwd_KM-A2hROVCke07pSgMAA/edit?usp=sharing"><i class="fas fa-file-alt"></i> Rapor</a>
+                            <a href="https://docs.google.com/document/d/1BbrMa5UdCdjPevd0sdnhwd_KM-A2hROVCke07pSgMAA/edit?usp=sharing"><i class="fas fa-file-alt"></i> <span data-tr="Rapor" data-en="Report">Rapor</span></a>
                         </div>
-
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-music"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-music"></i></div>
                     <div class="project-content">
-                        <h3>Müzik Öneri Sistemi</h3>
-                        <p>Denetimsiz öğrenme tekniklerini kullanarak müzik öneri sistemi. K-Means kümeleme ile şarkıları ses özelliklerine göre gruplandırır.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Scikit-learn</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">K-Means</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <h3 data-tr="Müzik Öneri Sistemi" data-en="Music Recommendation System">Müzik Öneri Sistemi</h3>
+                        <p data-tr="Denetimsiz öğrenme tekniklerini kullanarak müzik öneri sistemi. K-Means kümeleme ile şarkıları ses özelliklerine göre gruplandırır." data-en="A music recommendation system using unsupervised learning techniques. Groups songs by audio features using K-Means clustering.">Denetimsiz öğrenme tekniklerini kullanarak müzik öneri sistemi. K-Means kümeleme ile şarkıları ses özelliklerine göre gruplandırır.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">K-Means</span></div>
+                        <div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-id-card"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-id-card"></i></div>
                     <div class="project-content">
-                        <h3>Gerçek Zamanlı Plaka Tanıma</h3>
-                        <p>Düşük ışık koşullarında çalışan gerçek zamanlı plaka tanıma (LPR) sistemi. YOLOv11s ve EasyOCR kullanılarak geliştirildi.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">YOLOv11s</span>
-                            <span class="tag">EasyOCR</span>
-                            <span class="tag">OpenCV</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/plate_recognition" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <h3 data-tr="Gerçek Zamanlı Plaka Tanıma" data-en="Real-Time License Plate Recognition">Gerçek Zamanlı Plaka Tanıma</h3>
+                        <p data-tr="Düşük ışık koşullarında çalışan gerçek zamanlı plaka tanıma (LPR) sistemi. YOLOv11s ve EasyOCR kullanılarak geliştirildi." data-en="A real-time License Plate Recognition (LPR) system that works in low-light conditions. Developed using YOLOv11s and EasyOCR.">Düşük ışık koşullarında çalışan gerçek zamanlı plaka tanıma (LPR) sistemi. YOLOv11s ve EasyOCR kullanılarak geliştirildi.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">YOLOv11s</span><span class="tag">EasyOCR</span><span class="tag">OpenCV</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/plate_recognition" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-city"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-city"></i></div>
                     <div class="project-content">
-                        <h3>Sokak Görüntüsü Sınıflandırma</h3>
-                        <p>Türk sokak görüntülerini İstanbul, Ankara veya İzmir olarak sınıflandıran CNN modeli. Datathon AI Qualification için geliştirildi.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">Kaggle</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/datathon-ai-qualification" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <h3 data-tr="Sokak Görüntüsü Sınıflandırma" data-en="Street Image Classification">Sokak Görüntüsü Sınıflandırma</h3>
+                        <p data-tr="Türk sokak görüntülerini İstanbul, Ankara veya İzmir olarak sınıflandıran CNN modeli. Datathon AI Qualification için geliştirildi." data-en="A CNN model that classifies Turkish street images as Istanbul, Ankara, or Izmir. Developed for the Datathon AI Qualification.">Türk sokak görüntülerini İstanbul, Ankara veya İzmir olarak sınıflandıran CNN modeli. Datathon AI Qualification için geliştirildi.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">Kaggle</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/datathon-ai-qualification" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
+                    <div class="project-img"><i class="fas fa-chalkboard-teacher"></i></div>
                     <div class="project-content">
                         <h3>Mindory</h3>
-                        <p>otizmli çocuklara özel olarak tasarlanmış etkileşimli bir eğitim uygulamasıdır. Kivy tabanlı mobil uygulama; yapay zekâ destekli testler, kişiselleştirilmiş raporlar ve hikaye dinleme özellikleri sunar. FastAPI ile geliştirilen backend, Google Cloud altyapısında barındırılır ve Gemini API ile entegredir.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Cloud</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/Algomind" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p data-tr="Otizmli çocuklara özel olarak tasarlanmış etkileşimli bir eğitim uygulamasıdır. Kivy tabanlı mobil uygulama; yapay zekâ destekli testler, kişiselleştirilmiş raporlar ve hikaye dinleme özellikleri sunar. FastAPI ile geliştirilen backend, Google Cloud altyapısında barındırılır ve Gemini API ile entegredir." data-en="An interactive educational application designed specifically for children with autism. The Kivy-based mobile app offers AI-powered tests, personalized reports, and story-listening features. The FastAPI backend is hosted on Google Cloud and integrated with the Gemini API.">Otizmli çocuklara özel olarak tasarlanmış etkileşimli bir eğitim uygulamasıdır.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Cloud</span><span class="tag">PostgreSQL</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/Algomind" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
-                       <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-route"></i>
-                    </div>
+
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-route"></i></div>
                     <div class="project-content">
                         <h3>Yolcu</h3>
-                        <p>Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış yenilikçi bir web uygulamasıdır. Kullanıcıların hedefledikleri alanda uzmanlaşmaları için kişiselleştirilmiş yol haritaları oluşturur, teknik ve sosyal becerilerini geliştirir ve iş arama süreçlerinde onlara rehberlik eder.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Cloud</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">NLP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/elifirinci/Besteam" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p data-tr="Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış yenilikçi bir web uygulamasıdır. Kullanıcıların hedefledikleri alanda uzmanlaşmaları için kişiselleştirilmiş yol haritaları oluşturur, teknik ve sosyal becerilerini geliştirir ve iş arama süreçlerinde onlara rehberlik eder." data-en="An innovative web application designed to prepare new graduates and early-career professionals for professional life. Creates personalized roadmaps, develops technical and social skills, and guides users through their job search process.">Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış yenilikçi bir web uygulamasıdır.</p>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Cloud</span><span class="tag">PostgreSQL</span><span class="tag">NLP</span></div>
+                        <div class="project-links"><a href="https://github.com/elifirinci/Besteam" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
                     </div>
                 </div>
 
@@ -1430,74 +615,69 @@
         </div>
     </section>
 
-    <!-- Competitions Section -->
+    <!-- Competitions -->
     <section id="competitions" class="competitions">
         <div class="container">
             <div class="section-title">
-                <h2>Yarışmalar & Başarılar</h2>
-                <p>Katıldığım ulusal ve uluslararası yarışmalarda elde ettiğim başarılar</p>
+                <h2 data-tr="Yarışmalar & Başarılar" data-en="Competitions & Achievements">Yarışmalar & Başarılar</h2>
+                <p data-tr="Katıldığım ulusal ve uluslararası yarışmalarda elde ettiğim başarılar" data-en="Achievements from national and international competitions I have participated in">Katıldığım ulusal ve uluslararası yarışmalarda elde ettiğim başarılar</p>
             </div>
             <div class="competitions-grid">
+
                 <div class="competition-card">
                     <div class="competition-header">
-                        <div class="competition-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
+                        <div class="competition-icon"><i class="fas fa-brain"></i></div>
                         <div class="competition-title">Health AI Technofest</div>
-                        <div class="competition-category">Sağlıkta Yapay Zeka Kategorisi</div>
+                        <div class="competition-category" data-tr="Sağlıkta Yapay Zeka Kategorisi" data-en="AI in Healthcare Category">Sağlıkta Yapay Zeka Kategorisi</div>
                     </div>
                     <div class="competition-content">
                         <div class="competition-description">
-                            <p>BT görüntülerinden inme tespiti ve MRI görüntülerinden inmenin faza göre sınıflandırılması projesi geliştirdik. Derin öğrenme teknikleri kullanarak tıbbi görüntülerden inme belirtilerini otomatik olarak tespit eden ve inmenin evresini sınıflandıran bir sistem tasarladık.</p>
+                            <p data-tr="BT görüntülerinden inme tespiti ve MRI görüntülerinden inmenin faza göre sınıflandırılması projesi geliştirdik. Derin öğrenme teknikleri kullanarak tıbbi görüntülerden inme belirtilerini otomatik olarak tespit eden ve inmenin evresini sınıflandıran bir sistem tasarladık." data-en="We developed a project for stroke detection from CT images and stroke phase classification from MRI images. We designed a system that automatically detects stroke symptoms from medical images and classifies the stroke stage using deep learning techniques.">BT görüntülerinden inme tespiti ve MRI görüntülerinden inmenin faza göre sınıflandırılması projesi geliştirdik.</p>
                         </div>
                         <div class="competition-result">
-                            <div class="result-badge">Finalist</div>
+                            <div class="result-badge" data-tr="Finalist" data-en="Finalist">Finalist</div>
                             <div class="result-year">2025</div>
                         </div>
                         <div class="competition-links">
-                            <a href="https://drive.google.com/file/d/19V1nKk_ghSoSMXXavmIeqFH3-Qm3wOfy/view?usp=sharing"><i class="fas fa-certificate"></i> Sertifika</a>
-                            <a href="#"><i class="fas fa-images"></i> Fotoğraflar</a>
+                            <a href="https://drive.google.com/file/d/19V1nKk_ghSoSMXXavmIeqFH3-Qm3wOfy/view?usp=sharing"><i class="fas fa-certificate"></i> <span data-tr="Sertifika" data-en="Certificate">Sertifika</span></a>
+                            <a href="#"><i class="fas fa-images"></i> <span data-tr="Fotoğraflar" data-en="Photos">Fotoğraflar</span></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="competition-card">
                     <div class="competition-header">
-                        <div class="competition-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
+                        <div class="competition-icon"><i class="fas fa-mobile-alt"></i></div>
                         <div class="competition-title">BTK Hackathon</div>
-                        <div class="competition-category">Mindory - Otizmli Çocuklar İçin Mobil Eğitim</div>
+                        <div class="competition-category" data-tr="Mindory - Otizmli Çocuklar İçin Mobil Eğitim" data-en="Mindory - Mobile Education for Children with Autism">Mindory - Otizmli Çocuklar İçin Mobil Eğitim</div>
                     </div>
                     <div class="competition-content">
                         <div class="competition-description">
-                            <p>Otizmli çocuklar için özel olarak tasarlanmış etkileşimli bir eğitim uygulaması. Kivy tabanlı mobil uygulama; yapay zekâ destekli testler, kişiselleştirilmiş raporlar ve hikaye dinleme özellikleri sunar. FastAPI backend, Google Cloud altyapısı ve Gemini API entegrasyonu içerir.</p>
+                            <p data-tr="Otizmli çocuklar için özel olarak tasarlanmış etkileşimli bir eğitim uygulaması. Kivy tabanlı mobil uygulama; yapay zekâ destekli testler, kişiselleştirilmiş raporlar ve hikaye dinleme özellikleri sunar. FastAPI backend, Google Cloud altyapısı ve Gemini API entegrasyonu içerir." data-en="An interactive educational application specifically designed for children with autism. The Kivy-based mobile app offers AI-powered tests, personalized reports, and story-listening features with FastAPI backend, Google Cloud infrastructure, and Gemini API integration.">Otizmli çocuklar için özel olarak tasarlanmış etkileşimli bir eğitim uygulaması.</p>
                         </div>
                         <div class="competition-result">
-                            <div class="result-badge">Katılımcı</div>
+                            <div class="result-badge" data-tr="Katılımcı" data-en="Participant">Katılımcı</div>
                             <div class="result-year">2025</div>
                         </div>
                         <div class="competition-links">
                             <a href="https://github.com/bburaakk/Algomind" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#"><i class="fas fa-certificate"></i> Sertifika</a>
+                            <a href="#"><i class="fas fa-certificate"></i> <span data-tr="Sertifika" data-en="Certificate">Sertifika</span></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="competition-card">
                     <div class="competition-header">
-                        <div class="competition-icon">
-                            <i class="fas fa-route"></i>
-                        </div>
+                        <div class="competition-icon"><i class="fas fa-route"></i></div>
                         <div class="competition-title">Pupilica 2025 Hackathon</div>
-                        <div class="competition-category">Yolcu - Kariyer Yol Haritası Uygulaması</div>
+                        <div class="competition-category" data-tr="Yolcu - Kariyer Yol Haritası Uygulaması" data-en="Yolcu - Career Roadmap Application">Yolcu - Kariyer Yol Haritası Uygulaması</div>
                     </div>
                     <div class="competition-content">
                         <div class="competition-description">
-                            <p>Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış kariyer yol haritası uygulaması. React frontend, FastAPI backend ve Gemini API entegrasyonu ile ATS uyumlu CV analizi, proje önerileri ve yol haritası sohbet asistanı özellikleri sunar.</p>
+                            <p data-tr="Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış kariyer yol haritası uygulaması. React frontend, FastAPI backend ve Gemini API entegrasyonu ile ATS uyumlu CV analizi, proje önerileri ve yol haritası sohbet asistanı özellikleri sunar." data-en="A career roadmap application designed to prepare new graduates and early-career professionals for professional life. Features ATS-compatible CV analysis, project suggestions, and a roadmap chat assistant using React frontend, FastAPI backend, and Gemini API integration.">Yeni mezun öğrencileri ve kariyerinin başındakileri profesyonel hayata hazırlamak için tasarlanmış kariyer yol haritası uygulaması.</p>
                         </div>
                         <div class="competition-result">
-                            <div class="result-badge">Finalist</div>
+                            <div class="result-badge" data-tr="Finalist" data-en="Finalist">Finalist</div>
                             <div class="result-year">2025</div>
                         </div>
                         <div class="competition-links">
@@ -1506,50 +686,49 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="competition-card">
                     <div class="competition-header">
-                        <div class="competition-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="competition-title">Google Yapay Zeka Akademisi-COP Ideathon</div>
+                        <div class="competition-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="competition-title" data-tr="Google Yapay Zeka Akademisi-COP Ideathon" data-en="Google AI Academy - COP Ideathon">Google Yapay Zeka Akademisi-COP Ideathon</div>
                         <div class="competition-category">BioNode</div>
                     </div>
                     <div class="competition-content">
                         <div class="competition-description">
-                            <p>Orman yangınları için çözüm geliştirildi.</p>
+                            <p data-tr="Orman yangınları için çözüm geliştirildi." data-en="Developed a solution for forest fires.">Orman yangınları için çözüm geliştirildi.</p>
                         </div>
                         <div class="competition-result">
-                            <div class="result-badge">Birinci</div>
+                            <div class="result-badge" data-tr="Birinci" data-en="1st Place">Birinci</div>
                             <div class="result-year">2026</div>
                         </div>
-                        <div class="competition-links">
-                            
-                        </div>
+                        <div class="competition-links"></div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-title">
-                <h2>Deneyimlerim</h2>
-                <p>Profesyonel kariyerimdeki önemli aşamalar ve staj deneyimlerim</p>
+                <h2 data-tr="Deneyimlerim" data-en="My Experience">Deneyimlerim</h2>
+                <p data-tr="Profesyonel kariyerimdeki önemli aşamalar ve staj deneyimlerim" data-en="Key milestones in my professional career and internship experiences">Profesyonel kariyerimdeki önemli aşamalar ve staj deneyimlerim</p>
             </div>
             <div class="timeline">
+
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>i2i Systems</h3>
-                        <h4>Yazılım Geliştirme Stajyeri</h4>
-                        <div class="date">Haz 2025 - Ağu 2025</div>
+                        <h4 data-tr="Yazılım Geliştirme Stajyeri" data-en="Software Development Intern">Yazılım Geliştirme Stajyeri</h4>
+                        <div class="date" data-tr="Haz 2025 - Ağu 2025" data-en="Jun 2025 - Aug 2025">Haz 2025 - Ağu 2025</div>
                         <ul>
-                            <li>Kod kalitesi standartları ve en iyi uygulamalar hakkında kod incelemeleri ve tartışmalar</li>
-                            <li>Bulut ortamında sanal makinelerin kurulumu ve test edilmesi</li>
-                            <li>Kafka, Hazelcast, Spring Boot ve Swagger eğitimleri</li>
-                            <li>VoltDB ve Selenium, Docker, Refactoring, Agile metodolojileri hakkında sunumlar</li>
-                            <li>Oracle PL/SQL görevleri ve SQL analitik fonksiyonları</li>
+                            <li data-tr="Kod kalitesi standartları ve en iyi uygulamalar hakkında kod incelemeleri ve tartışmalar" data-en="Code reviews and discussions on code quality standards and best practices">Kod kalitesi standartları ve en iyi uygulamalar hakkında kod incelemeleri ve tartışmalar</li>
+                            <li data-tr="Bulut ortamında sanal makinelerin kurulumu ve test edilmesi" data-en="Setup and testing of virtual machines in cloud environments">Bulut ortamında sanal makinelerin kurulumu ve test edilmesi</li>
+                            <li data-tr="Kafka, Hazelcast, Spring Boot ve Swagger eğitimleri" data-en="Training on Kafka, Hazelcast, Spring Boot, and Swagger">Kafka, Hazelcast, Spring Boot ve Swagger eğitimleri</li>
+                            <li data-tr="VoltDB ve Selenium, Docker, Refactoring, Agile metodolojileri hakkında sunumlar" data-en="Presentations on VoltDB, Selenium, Docker, Refactoring, and Agile methodologies">VoltDB ve Selenium, Docker, Refactoring, Agile metodolojileri hakkında sunumlar</li>
+                            <li data-tr="Oracle PL/SQL görevleri ve SQL analitik fonksiyonları" data-en="Oracle PL/SQL tasks and SQL analytic functions">Oracle PL/SQL görevleri ve SQL analitik fonksiyonları</li>
                         </ul>
                     </div>
                 </div>
@@ -1557,14 +736,14 @@
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <h3>AcunMedya Akademi</h3>
-                        <h4>Veri Bilimi & Makine Öğrenimi Stajyeri</h4>
-                        <div class="date">Oca 2025 - Haz 2025</div>
+                        <h4 data-tr="Veri Bilimi & Makine Öğrenimi Stajyeri" data-en="Data Science & Machine Learning Intern">Veri Bilimi & Makine Öğrenimi Stajyeri</h4>
+                        <div class="date" data-tr="Oca 2025 - Haz 2025" data-en="Jan 2025 - Jun 2025">Oca 2025 - Haz 2025</div>
                         <ul>
-                            <li>Veri manipülasyonu ve görselleştirme için Python kütüphaneleri (NumPy, Pandas, Matplotlib, Seaborn)</li>
-                            <li>Özellik mühendisliği teknikleri (RFE ve PCA)</li>
-                            <li>Denetimli öğrenme modelleri (Linear, Polynomial, Logistic Regression)</li>
-                            <li>Model optimizasyonu (KNN, Decision Trees, Random Forests)</li>
-                            <li>Model dağıtımı için Streamlit kullanarak interaktif web arayüzü</li>
+                            <li data-tr="Veri manipülasyonu ve görselleştirme için Python kütüphaneleri (NumPy, Pandas, Matplotlib, Seaborn)" data-en="Python libraries for data manipulation and visualization (NumPy, Pandas, Matplotlib, Seaborn)">Veri manipülasyonu ve görselleştirme için Python kütüphaneleri (NumPy, Pandas, Matplotlib, Seaborn)</li>
+                            <li data-tr="Özellik mühendisliği teknikleri (RFE ve PCA)" data-en="Feature engineering techniques (RFE and PCA)">Özellik mühendisliği teknikleri (RFE ve PCA)</li>
+                            <li data-tr="Denetimli öğrenme modelleri (Linear, Polynomial, Logistic Regression)" data-en="Supervised learning models (Linear, Polynomial, Logistic Regression)">Denetimli öğrenme modelleri (Linear, Polynomial, Logistic Regression)</li>
+                            <li data-tr="Model optimizasyonu (KNN, Decision Trees, Random Forests)" data-en="Model optimization (KNN, Decision Trees, Random Forests)">Model optimizasyonu (KNN, Decision Trees, Random Forests)</li>
+                            <li data-tr="Model dağıtımı için Streamlit kullanarak interaktif web arayüzü" data-en="Interactive web interface using Streamlit for model deployment">Model dağıtımı için Streamlit kullanarak interaktif web arayüzü</li>
                         </ul>
                     </div>
                 </div>
@@ -1572,42 +751,42 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Arnavutkoy Belediyesi</h3>
-                        <h4>Stajyer</h4>
-                        <div class="date">Tem 2024 - Eyl 2024</div>
+                        <h4 data-tr="Stajyer" data-en="Intern">Stajyer</h4>
+                        <div class="date" data-tr="Tem 2024 - Eyl 2024" data-en="Jul 2024 - Sep 2024">Tem 2024 - Eyl 2024</div>
                         <ul>
-                            <li>Kullanıcı deneyimini artıran gelişmiş e-ticaret platformu geliştirme</li>
-                            <li>Kullanıcıların giysi eşyalarını renge göre eşleştirmesini sağlayan benzersiz işlevsellik</li>
-                            <li>BeautifulSoup (bs4) ile web scraping ve JSON formatında veri işleme</li>
-                            <li>Takım çalışması, problem çözme ve tasarım ile yazılım geliştirmeyi entegre etme deneyimi</li>
+                            <li data-tr="Kullanıcı deneyimini artıran gelişmiş e-ticaret platformu geliştirme" data-en="Development of an advanced e-commerce platform enhancing user experience">Kullanıcı deneyimini artıran gelişmiş e-ticaret platformu geliştirme</li>
+                            <li data-tr="Kullanıcıların giysi eşyalarını renge göre eşleştirmesini sağlayan benzersiz işlevsellik" data-en="Unique functionality enabling users to match clothing items by color">Kullanıcıların giysi eşyalarını renge göre eşleştirmesini sağlayan benzersiz işlevsellik</li>
+                            <li data-tr="BeautifulSoup (bs4) ile web scraping ve JSON formatında veri işleme" data-en="Web scraping with BeautifulSoup (bs4) and data processing in JSON format">BeautifulSoup (bs4) ile web scraping ve JSON formatında veri işleme</li>
+                            <li data-tr="Takım çalışması, problem çözme ve tasarım ile yazılım geliştirmeyi entegre etme deneyimi" data-en="Experience integrating teamwork, problem-solving, and design with software development">Takım çalışması, problem çözme ve tasarım ile yazılım geliştirmeyi entegre etme deneyimi</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>İletişim</h2>
-                <p>Projelerim hakkında daha fazla bilgi almak veya işbirliği için benimle iletişime geçin</p>
+                <h2 data-tr="İletişim" data-en="Contact">İletişim</h2>
+                <p data-tr="Projelerim hakkında daha fazla bilgi almak veya işbirliği için benimle iletişime geçin" data-en="Get in touch with me for more information about my projects or for collaboration">Projelerim hakkında daha fazla bilgi almak veya işbirliği için benimle iletişime geçin</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>İletişim Bilgilerim</h3>
+                    <h3 data-tr="İletişim Bilgilerim" data-en="Contact Information">İletişim Bilgilerim</h3>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <a href="mailto:elifirincii@gmail.com">elifirincii@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>İstanbul, Türkiye</p>
+                        <p data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</p>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/elifirinci/" target="_blank">
-                         linkedin.com/in/elifirinci</a>
+                        <a href="https://www.linkedin.com/in/elifirinci/" target="_blank">linkedin.com/in/elifirinci</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
@@ -1637,90 +816,83 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Elif FIRINCI. Tüm hakları saklıdır.</p>
+                <p data-tr="&copy; 2025 Elif FIRINCI. Tüm hakları saklıdır." data-en="&copy; 2025 Elif FIRINCI. All rights reserved.">&copy; 2025 Elif FIRINCI. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // ── Language switcher ──────────────────────────────────────────────
+        let currentLang = localStorage.getItem('lang') || 'tr';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            // Toggle button states
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-tr][data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text !== null) {
+                    // Check if it's a button/link with just text
+                    el.textContent = text;
+                }
+            });
+
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+
+            // Update page title
+            document.title = lang === 'tr'
+                ? 'Elif FIRINCI - AI & Machine Learning'
+                : 'Elif FIRINCI - AI & Machine Learning';
+        }
+
+        // Apply saved language on load
+        setLang(currentLang);
+
+        // ── Mobile menu ────────────────────────────────────────────────────
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('nav ul');
+        mobileMenuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth scrolling
+        // ── Smooth scrolling ───────────────────────────────────────────────
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                     navMenu.classList.remove('active');
                 }
             });
         });
 
-        // Active navigation link
+        // ── Active nav link on scroll ──────────────────────────────────────
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a');
-
         window.addEventListener('scroll', () => {
             let current = '';
-
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
+                if (scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').slice(1) === current) link.classList.add('active');
             });
         });
 
-        // Skill bars animation
+        // ── Skill bars animation ───────────────────────────────────────────
         const skillBars = document.querySelectorAll('.skill-level');
-
-        const showSkillBars = () => {
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width;
-            });
-        };
-
-        // Intersection Observer for skill bars
+        const showSkillBars = () => skillBars.forEach(bar => { bar.style.width = bar.getAttribute('data-width'); });
         const skillsSection = document.querySelector('.skills');
-        const observerOptions = {
-            threshold: 0.5
-        };
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    showSkillBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        if (skillsSection) {
-            observer.observe(skillsSection);
-        }
+            entries.forEach(entry => { if (entry.isIntersecting) { showSkillBars(); observer.unobserve(entry.target); } });
+        }, { threshold: 0.5 });
+        if (skillsSection) observer.observe(skillsSection);
     </script>
 </body>
 </html>
