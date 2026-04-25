@@ -215,11 +215,50 @@
 
         .skills { margin-top: 20px; }
         .skills h4 { font-size: 1.5rem; margin-bottom: 25px; color: var(--white); font-weight: 600; }
-        .skill-item { margin-bottom: 25px; }
-        .skill-name { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 500; }
-        .skill-bar { height: 12px; background-color: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-        .skill-level { height: 100%; border-radius: 10px; width: 0; transition: width 1.5s ease-in-out; position: relative; }
-        .skill-level::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-1); border-radius: 10px; }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-tag-group {
+            background: rgba(0, 31, 63, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(0, 119, 255, 0.2);
+        }
+
+        .skill-tag-group h5 {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 119, 255, 0.1);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 119, 255, 0.3);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--gradient-1);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.2);
+        }
 
         /* Projects */
         .projects { background-color: var(--black); position: relative; }
@@ -486,22 +525,71 @@
                     </div>
 
                     <div class="skills">
-                        <h4 data-tr="Yeteneklerim" data-en="My Skills">Yeteneklerim</h4>
-                        <div class="skill-item">
-                            <div class="skill-name"><span>Python & TensorFlow</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name"><span>Machine Learning</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name"><span>Data Analysis</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-level" data-width="90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name"><span>Deep Learning</span><span>80%</span></div>
-                            <div class="skill-bar"><div class="skill-level" data-width="80%"></div></div>
+                        <h4 data-tr="Yeteneklerim & Teknoloji Yığınım" data-en="My Skills & Tech Stack">Yeteneklerim & Teknoloji Yığınım</h4>
+                        <div class="skills-container">
+                            <div class="skill-tag-group">
+                                <h5 data-tr="Programlama Dilleri" data-en="Programming Languages">Programlama Dilleri</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">SQL</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">PostgreSQL</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-tag-group">
+                                <h5 data-tr="Makine Öğrenimi & Yapay Zeka" data-en="Machine Learning & AI">Makine Öğrenimi & Yapay Zeka</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">TensorFlow</span>
+                                    <span class="skill-tag">Keras</span>
+                                    <span class="skill-tag">Scikit-learn</span>
+                                    <span class="skill-tag">Deep Learning</span>
+                                    <span class="skill-tag">Neural Networks</span>
+                                    <span class="skill-tag">Computer Vision</span>
+                                    <span class="skill-tag">Feature Engineering</span>
+                                    <span class="skill-tag">Model Optimization</span>
+                                    <span class="skill-tag">Hyperparameter Tuning</span>
+                                    <span class="skill-tag">Cross Validation</span>
+                                    <span class="skill-tag">Feature Scaling</span>
+                                    <span class="skill-tag">Transformer Models</span>
+                                    <span class="skill-tag">NLP</span>
+                                    <span class="skill-tag">LLM</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-tag-group">
+                                <h5 data-tr="Veri Analizi" data-en="Data Analysis">Veri Analizi</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Pandas</span>
+                                    <span class="skill-tag">NumPy</span>
+                                    <span class="skill-tag">Matplotlib</span>
+                                    <span class="skill-tag">Seaborn</span>
+                                    <span class="skill-tag">Data Visualization</span>
+                                    <span class="skill-tag">Data Preprocessing</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-tag-group">
+                                <h5 data-tr="Web Geliştirme" data-en="Web Development">Web Geliştirme</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Flask</span>
+                                    <span class="skill-tag">FastAPI</span>
+                                    <span class="skill-tag">Streamlit</span>
+                                    <span class="skill-tag">REST APIs</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-tag-group">
+                                <h5 data-tr="Araçlar & DevOps" data-en="Tools & DevOps">Araçlar & DevOps</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Cloud Environments</span>
+                                    <span class="skill-tag">Agile</span>
+                                    <span class="skill-tag">Scrum</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -513,8 +601,6 @@
 
 <section id="projects" class="projects">
     <div class="container">
-
-```
     <div class="section-title">
         <h2 
             data-tr="Projelerim" 
@@ -530,6 +616,32 @@
     </div>
 
     <div class="projects-grid">
+
+        <!-- Project -->
+        <div class="project-card">
+            <div class="project-img">
+                <i class="fas fa-bus"></i>
+            </div>
+            <div class="project-content">
+                <h3>Sivas Akıllı Durak</h3>
+                <p
+                    data-tr="Etkileşimli harita üzerinde otobüs varış gecikmelerini ve yolcu yoğunluk seviyelerini tahmin eden yapay zeka destekli toplu taşıma web uygulaması. Gerçek zamanlı etkileşimi makine öğrenimi ile birleştirerek kullanıcıların daha akıllı seyahat kararları almasına yardımcı olur."
+                    data-en="AI-powered web app for public transit that predicts bus arrival delays and passenger crowd levels on an interactive map. Combines real-time interaction with machine learning to help users make smarter travel decisions and reduce uncertainty in daily commuting.">
+                    Etkileşimli harita üzerinde otobüs varış gecikmelerini ve yolcu yoğunluk seviyelerini tahmin eden yapay zeka destekli toplu taşıma web uygulaması. Gerçek zamanlı etkileşimi makine öğrenimi ile birleştirerek kullanıcıların daha akıllı seyahat kararları almasına yardımcı olur.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Web App</span>
+                    <span class="tag">Interactive Map</span>
+                    <span class="tag">AI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/elifirinci/urban_transit" onclick="return false;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <!-- Project -->
         <div class="project-card">
@@ -834,8 +946,8 @@
             </div>
             <div class="project-content">
                 <h3>ZK-DCR</h3>
-                <p 
-                    data-tr="Merkeziyetsiz ve gizlilik odaklı veri analiz altyapısı." 
+                <p
+                    data-tr="Merkeziyetsiz ve gizlilik odaklı veri analiz altyapısı."
                     data-en="A decentralized privacy-focused data analysis infrastructure.">
                     ZK-DCR, sağlık verilerinin gizliliğini koruyarak merkeziyetsiz ve güvenli biçimde işlenmesini sağlayan ileri düzey bir veri paylaşım ve analiz altyapısıdır.
                 </p>
@@ -852,10 +964,34 @@
                 </div>
             </div>
         </div>
+        <!-- Project -->
+        <div class="project-card">
+            <div class="project-img">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="project-content">
+                <h3>A Two-Stage Framework for Attack Identification and Flood Type Distinction</h3>
+                <p
+                        data-tr="Protokol tanımlayıcıları kullanmadan makine öğrenimi tabanlı DDoS saldırı tespiti ve tür sınıflandırması yapan iki aşamalı bir çerçeve. 15. IEEE CSNT 2026 konferansında sunulmuştur."
+                     data-en="A two-stage framework for machine learning-based DDoS attack detection and flood type distinction without using protocol identifiers. Presented at the 15th IEEE CSNT 2026 conference.">
+                     Protokol tanımlayıcıları kullanmadan makine öğrenimi tabanlı DDoS saldırı tespiti ve tür sınıflandırması yapan iki aşamalı bir çerçeve. 15. IEEE CSNT 2026 konferansında sunulmuştur.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Cybersecurity</span>
+                    <span class="tag">Ddos Attacks</span>
+                    <span class="tag">Network Traffic</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" onclick="return false;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
-```
 
 </section>
 
@@ -1130,15 +1266,6 @@
                 if (link.getAttribute('href').slice(1) === current) link.classList.add('active');
             });
         });
-
-        // ── Skill bars animation ───────────────────────────────────────────
-        const skillBars = document.querySelectorAll('.skill-level');
-        const showSkillBars = () => skillBars.forEach(bar => { bar.style.width = bar.getAttribute('data-width'); });
-        const skillsSection = document.querySelector('.skills');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) { showSkillBars(); observer.unobserve(entry.target); } });
-        }, { threshold: 0.5 });
-        if (skillsSection) observer.observe(skillsSection);
     </script>
 </body>
 </html>
