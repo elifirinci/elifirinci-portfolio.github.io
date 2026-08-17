@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elif FIRINCI - AI & Machine Learning</title>
+    <meta name="description" content="Elif FIRINCI — AI & Machine Learning portfolio: projects, publications, competitions, experience, and contact.">
+    <meta name="theme-color" content="#001F3F">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Elif FIRINCI - AI & Machine Learning">
+    <meta property="og:description" content="AI/ML projects, publications, competitions and experience by Elif FIRINCI.">
+    <meta property="og:url" content="https://elifirinci-portfolio.github.io/">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/00000000?v=4">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230077FF'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='white' font-family='Arial' %3EE%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -24,6 +33,19 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Accessibility: focus styles */
+        a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); outline-offset: 3px; border-radius: 6px; }
+
+        /* Back to Top button */
+        .back-to-top { position: fixed; right: 20px; bottom: 20px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(0,119,255,0.4); background: rgba(255,255,255,0.08); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25); cursor: pointer; transition: all 0.3s ease; opacity: 0; pointer-events: none; z-index: 1000; }
+        .back-to-top:hover { background: var(--gradient-1); transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,119,255,0.35); }
+        .back-to-top.show { opacity: 1; pointer-events: auto; }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
 
         /* Header */
         header {
@@ -421,12 +443,13 @@
 <body>
     <header>
         <div class="container header-container">
-            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-            <nav>
-                <ul>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            <nav aria-label="Primary">
+                <ul id="primary-navigation">
                     <li><a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
                     <li><a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
                     <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+                    <li><a href="#publications" data-tr="Yayınlar" data-en="Publications">Yayınlar</a></li>
                     <li><a href="#competitions" data-tr="Yarışmalar" data-en="Competitions">Yarışmalar</a></li>
                     <li><a href="#experience" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
                     <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
@@ -482,17 +505,25 @@
                         <div class="education-card">
                             <div class="edu-header">
                                 <h5>Halic University</h5>
-                                <span class="edu-date" data-tr="Eyl 2021 - Devam Ediyor" data-en="Sep 2021 - Present">Eyl 2021 - Devam Ediyor</span>
+                                <span class="edu-date" data-tr="Eyl 2021 - Haz 2026" data-en="Sep 2021 - June 2026">Eyl 2021 - Haz 2026</span>
                             </div>
                             <p><strong data-tr="Bölüm:" data-en="Department:">Bölüm:</strong> <span data-tr="Yazılım Mühendisliği (İngilizce)" data-en="Software Engineering (English)">Yazılım Mühendisliği (İngilizce)</span></p>
                             <p><strong data-tr="Burs:" data-en="Scholarship:">Burs:</strong> <span data-tr="Tam Burslu" data-en="Full Scholarship">Tam Burslu</span></p>
-                            <p><strong>GPA:</strong> 3.18</p>
+                            <p><strong>GPA:</strong> 3.3</p>
                         </div>
                     </div>
 
                     <div class="certificates-info">
                         <h4><i class="fas fa-certificate"></i> <span data-tr="Sertifikalar" data-en="Certificates">Sertifikalar</span></h4>
                         <div class="certificates-grid">
+                            <div class="certificate-item">
+                                <h5>Google Data Analytics Professional Certificate</h5>
+                                <div class="cert-details"><span class="cert-issuer">Google</span><span class="cert-date" data-tr="Haz 2026" data-en="Jun 2026">Haz 2026</span></div>
+                            </div>
+                            <div class="certificate-item">
+                                <h5>Project Management</h5>
+                                <div class="cert-details"><span class="cert-issuer">Google</span><span class="cert-date" data-tr="Tem 2025" data-en="Jul 2025">Tem 2025</span></div>
+                            </div>
                             <div class="certificate-item">
                                 <h5>Feature Engineering</h5>
                                 <div class="cert-details"><span class="cert-issuer">Miuul</span><span class="cert-date" data-tr="Oca 2025" data-en="Jan 2025">Oca 2025</span></div>
@@ -508,14 +539,6 @@
                             <div class="certificate-item">
                                 <h5>Python Programming for Data Science</h5>
                                 <div class="cert-details"><span class="cert-issuer">Miuul</span><span class="cert-date" data-tr="Eki 2024" data-en="Oct 2024">Eki 2024</span></div>
-                            </div>
-                            <div class="certificate-item">
-                                <h5 data-tr="Yapay Zekaya Giriş" data-en="Introduction to Artificial Intelligence">Yapay Zekaya Giriş</h5>
-                                <div class="cert-details"><span class="cert-issuer">BTK Akademi</span><span class="cert-date" data-tr="Tem 2024" data-en="Jul 2024">Tem 2024</span></div>
-                            </div>
-                            <div class="certificate-item">
-                                <h5 data-tr="Yapay Zeka ve Algoritmalarına Giriş" data-en="Introduction to AI and Its Algorithms">Yapay Zeka ve Algoritmalarına Giriş</h5>
-                                <div class="cert-details"><span class="cert-issuer">BTK Akademi</span><span class="cert-date" data-tr="Eyl 2022" data-en="Sep 2022">Eyl 2022</span></div>
                             </div>
                             <div class="certificate-item">
                                 <h5 data-tr="Sıfırdan İleri Seviye Python Programlama" data-en="Python Programming from Zero to Advanced">Sıfırdan İleri Seviye Python Programlama</h5>
@@ -616,6 +639,36 @@
     </div>
 
     <div class="projects-grid">
+
+        <!-- Project: Kivona -->
+        <div class="project-card">
+            <div class="project-img">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="project-content">
+                <h3 data-tr="Kivona" data-en="Kivona">Kivona</h3>
+                <p
+                    data-tr="Kivona; hackathon, datathon, ideathon, gamejam ve bootcamp süreçlerinde birbirini tanımayan katılımcıların yaşadığı soğuk başlangıç problemini çözen bir başlangıç motorudur. İletişim kaosunu azaltır, doğru rol eşleşmeleri yapar ve ekiplerin ilk fikirlerini asenkron şekilde belirleyip kaynaşmalarını sağlar."
+                    data-en="Kivona is an ignition app that solves the cold-start problem for participants in hackathons, datathons, ideathons, game jams, and bootcamps. It reduces communication chaos, matches people to the right roles, and helps teams define first ideas asynchronously and connect fast.">
+                    Kivona; hackathon, datathon, ideathon, gamejam ve bootcamp süreçlerinde birbirini tanımayan katılımcıların yaşadığı soğuk başlangıç problemini çözen bir başlangıç motorudur. İletişim kaosunu azaltır, doğru rol eşleşmeleri yapar ve ekiplerin ilk fikirlerini asenkron şekilde belirleyip kaynaşmalarını sağlar.
+                </p>
+                <div class="project-tags">
+                    <span class="tag" data-tr="AI Eşleştirme" data-en="AI Matching">AI Eşleştirme</span>
+                    <span class="tag" data-tr="Yarışma Panosu" data-en="Competition Board">Yarışma Panosu</span>
+                    <span class="tag" data-tr="Takım Çalışma Alanı" data-en="Team Workspace">Takım Çalışma Alanı</span>
+                    <span class="tag" data-tr="Buz Kırıcı" data-en="Ice-Breaker">Buz Kırıcı</span>
+                    <span class="tag" data-tr="GitHub Analizi" data-en="GitHub Analysis">GitHub Analizi</span>
+                    <span class="tag" data-tr="AI Yetenek Analizi" data-en="AI Skill Analysis">AI Yetenek Analizi</span>
+                    <span class="tag" data-tr="AI Takım Analizi" data-en="AI Team Analysis">AI Takım Analizi</span>
+                    <span class="tag" data-tr="Rozet Sistemi" data-en="Badging System">Rozet Sistemi</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/yzta-bootcamp-team73/yzta-bootcamp-team73" onclick="return false;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <!-- Project -->
         <div class="project-card">
@@ -964,37 +1017,61 @@
                 </div>
             </div>
         </div>
-        <!-- Project -->
-        <div class="project-card">
-            <div class="project-img">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <div class="project-content">
-                <h3>A Two-Stage Framework for Attack Identification and Flood Type Distinction</h3>
-                <p
-                        data-tr="Protokol tanımlayıcıları kullanmadan makine öğrenimi tabanlı DDoS saldırı tespiti ve tür sınıflandırması yapan iki aşamalı bir çerçeve. 15. IEEE CSNT 2026 konferansında sunulmuştur."
-                     data-en="A two-stage framework for machine learning-based DDoS attack detection and flood type distinction without using protocol identifiers. Presented at the 15th IEEE CSNT 2026 conference.">
-                     Protokol tanımlayıcıları kullanmadan makine öğrenimi tabanlı DDoS saldırı tespiti ve tür sınıflandırması yapan iki aşamalı bir çerçeve. 15. IEEE CSNT 2026 konferansında sunulmuştur.
-                </p>
-                <div class="project-tags">
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Cybersecurity</span>
-                    <span class="tag">Ddos Attacks</span>
-                    <span class="tag">Network Traffic</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" onclick="return false;">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
+
 
     </div>
 </div>
 
 </section>
 
+    <!-- Publications -->
+    <section id="publications" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-tr="Yayınlar" data-en="Publications">Yayınlar</h2>
+                <p data-tr="Bilimsel çalışmalarım ve konferans/dergi yayınlarım" data-en="My scientific works and conference/journal publications">Bilimsel çalışmalarım ve konferans/dergi yayınlarım</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Publication 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Supervised Machine Learning for Technical Debt in Python: Analysis and Prediction</h3>
+                        <p data-tr="MAKE (Machine Learning and Knowledge Extraction) Dergisi | Mayıs 2025" data-en="MAKE (Machine Learning and Knowledge Extraction) Journal | May 2025">MAKE (Machine Learning and Knowledge Extraction) Dergisi | Mayıs 2025</p>
+                        <ul class="project-tags" style="gap: 8px; flex-wrap: wrap;">
+                            <li class="tag" data-tr="Açık erişim, Q1 (JCR & Scopus), IF 6.0, CiteScore 9.9" data-en="Open access, Q1 (JCR & Scopus), IF 6.0, CiteScore 9.9">Açık erişim, Q1 (JCR & Scopus), IF 6.0, CiteScore 9.9</li>
+                            <li class="tag" data-tr="Python ortamlarında teknik borcun gözetimli öğrenme ile tahmini" data-en="Predicting technical debt in Python environments using supervised learning">Python ortamlarında teknik borcun gözetimli öğrenme ile tahmini</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://doi.org/10.3390/make8050118" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> DOI: 10.3390/make8050118</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>A Two-Stage Framework for Attack Identification and Flood Type Distinction</h3>
+                        <p data-tr="15. IEEE CSNT Konferansı | 2026" data-en="15th IEEE CSNT Conference | 2026">15. IEEE CSNT Konferansı | 2026</p>
+                        <ul class="project-tags" style="gap: 8px; flex-wrap: wrap;">
+                            <li class="tag" data-tr="15. IEEE CSNT 2026'da sunuldu" data-en="Presented at the 15th IEEE CSNT 2026">15. IEEE CSNT 2026'da sunuldu</li>
+                            <li class="tag" data-tr="Protokol tanımlayıcılarına ihtiyaç duymadan DDoS tespiti ve taşkın türü ayrımı" data-en="DDoS detection and flood type distinction without relying on protocol identifiers">Protokol tanımlayıcılarına ihtiyaç duymadan DDoS tespiti ve taşkın türü ayrımı</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://doi.org/10.1109/CSNT69054.2026.11502518" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> DOI: 10.1109/CSNT69054.2026.11502518</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- Competitions -->
@@ -1102,6 +1179,34 @@
 
                 <div class="timeline-item left">
                     <div class="timeline-content">
+                        <h3>Esenler Municipality & ISTKA</h3>
+                        <h4 data-tr="Yapay Zeka Mühendisi Stajyeri (Hibrit)" data-en="AI Engineering Intern (Hybrid)">Yapay Zeka Mühendisi Stajyeri (Hibrit)</h4>
+                        <div class="date" data-tr="Mar 2026 - Devam Ediyor" data-en="Mar 2026 - Present">Mar 2026 - Devam Ediyor</div>
+                        <ul>
+                            <li data-tr="NVIDIA, THY, Enerjisa ve Albaraka Garaj ile kurumsal proje simülasyonları içeren 12 aylık AI dönüşüm programına seçildim" data-en="Selected for a 12-month AI transformation program featuring corporate project simulations with NVIDIA, THY, Enerjisa, and Albaraka Garaj">NVIDIA, THY, Enerjisa ve Albaraka Garaj ile kurumsal proje simülasyonları içeren 12 aylık AI dönüşüm programına seçildim</li>
+                            <li data-tr="Easyapp (NY) ve LemonRocks (SF) gibi küresel ortaklarla Fintech, Mobil Geliştirme ve Veri Analitiği alanlarında AI tabanlı simülasyonlar yürütüyorum" data-en="Executing AI-driven simulations in Fintech, Mobile Dev, and Data Analytics with global partners like Easyapp (NY) and LemonRocks (SF)">Easyapp (NY) ve LemonRocks (SF) gibi küresel ortaklarla Fintech, Mobil Geliştirme ve Veri Analitiği alanlarında AI tabanlı simülasyonlar yürütüyorum</li>
+                            <li data-tr="Gerçek dünya iş vakalarını ve sektörler arası inovasyon zorluklarını çözmek için Üretken Yapay Zeka araçlarını ve prompt engineering yöntemlerini uyguluyorum" data-en="Applying Generative AI tools and prompt engineering to solve real-world business cases and cross-sectoral innovation challenges">Gerçek dünya iş vakalarını ve sektörler arası inovasyon zorluklarını çözmek için Üretken Yapay Zeka araçlarını ve prompt engineering yöntemlerini uyguluyorum</li>
+                            <li data-tr="Akıllı şehirler ve sürdürülebilirlik için ölçeklenebilir AI çözümleri tasarlamak üzere yoğun Hackathonlarda iş birliği yapıyorum" data-en="Collaborating in high-intensity Hackathons to design scalable AI solutions for smart cities and sustainability">Akıllı şehirler ve sürdürülebilirlik için ölçeklenebilir AI çözümleri tasarlamak üzere yoğun Hackathonlarda iş birliği yapıyorum</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>AI & Technology Academy (YZTA)</h3>
+                        <h4 data-tr="Veri Bilimi Bursiyeri" data-en="Data Science Fellow">Veri Bilimi Bursiyeri</h4>
+                        <div class="date" data-tr="Ara 2025 - Devam Ediyor" data-en="Dec 2025 - Present">Ara 2025 - Devam Ediyor</div>
+                        <ul>
+                            <li data-tr="Sanayi ve Teknoloji Bakanlığı ile Google Türkiye tarafından yürütülen, oldukça seçici bir programda bursiyer olarak ödüllendirildim" data-en="Awarded a fellowship in a highly selective program by the Ministry of Industry and Technology and Google Turkey">Sanayi ve Teknoloji Bakanlığı ile Google Türkiye tarafından yürütülen, oldukça seçici bir programda bursiyer olarak ödüllendirildim</li>
+                            <li data-tr="Google Advanced Data Analytics Professional müfredatı dahil olmak üzere Veri Bilimi alanında 500+ saat ileri seviye eğitim tamamlıyorum" data-en="Completing 500+ hours of advanced training in Data Science, including Google Advanced Data Analytics Professional curriculum">Google Advanced Data Analytics Professional müfredatı dahil olmak üzere Veri Bilimi alanında 500+ saat ileri seviye eğitim tamamlıyorum</li>
+                            <li data-tr="Python ve SQL kullanarak uçtan uca veri hatları ve öngörücü modeller (Regresyon, Sınıflandırma, Kümeleme) geliştiriyorum" data-en="Developing end-to-end data pipelines and predictive models (Regression, Classification, Clustering) using Python and SQL">Python ve SQL kullanarak uçtan uca veri hatları ve öngörücü modeller (Regresyon, Sınıflandırma, Kümeleme) geliştiriyorum</li>
+                            <li data-tr="Sosyal etki ve iş problemleri için yapay zeka odaklı çözümler geliştirmek üzere yoğun Datathon ve Ideathon etkinliklerinde iş birliği yapıyorum" data-en="Collaborating in high-intensity Datathons and Ideathons to build AI-driven solutions for social impact and business challenges">Sosyal etki ve iş problemleri için yapay zeka odaklı çözümler geliştirmek üzere yoğun Datathon ve Ideathon etkinliklerinde iş birliği yapıyorum</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
                         <h3>i2i Systems</h3>
                         <h4 data-tr="Yazılım Geliştirme Stajyeri" data-en="Software Development Intern">Yazılım Geliştirme Stajyeri</h4>
                         <div class="date" data-tr="Haz 2025 - Ağu 2025" data-en="Jun 2025 - Aug 2025">Haz 2025 - Ağu 2025</div>
@@ -1172,15 +1277,15 @@
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-github"></i>
-                        <p>github.com/elifirinci</p>
+                        <a href="https://github.com/elifirinci" target="_blank" rel="noopener noreferrer">github.com/elifirinci</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-kaggle"></i>
-                        <p>kaggle.com/eliffirinci</p>
+                        <a href="https://www.kaggle.com/eliffirinci" target="_blank" rel="noopener noreferrer">kaggle.com/eliffirinci</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-medium"></i>
-                        <p>medium.com/@elifirinci</p>
+                        <a href="https://medium.com/@elifirinci" target="_blank" rel="noopener noreferrer">medium.com/@elifirinci</a>
                     </div>
                 </div>
             </div>
@@ -1191,11 +1296,11 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://linkedin.com/in/elifirinci" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/elifirinci" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://medium.com/@elifirinci" target="_blank"><i class="fab fa-medium"></i></a>
-                <a href="https://www.kaggle.com/eliffirinci"><i class="fab fa-kaggle"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/in/elifirinci" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/elifirinci" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@elifirinci" target="_blank" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
+                <a href="https://www.kaggle.com/eliffirinci" target="_blank" rel="noopener noreferrer"><i class="fab fa-kaggle"></i></a>
+                <a href="#" aria-label="Instagram (coming soon)" onclick="return false;"><i class="fab fa-instagram" aria-hidden="true"></i></a>
             </div>
             <div class="copyright">
                 <p data-tr="&copy; 2025 Elif FIRINCI. Tüm hakları saklıdır." data-en="&copy; 2025 Elif FIRINCI. All rights reserved.">&copy; 2025 Elif FIRINCI. Tüm hakları saklıdır.</p>
@@ -1203,6 +1308,10 @@
         </div>
     </footer>
 
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    
     <script>
         // ── Language switcher ──────────────────────────────────────────────
         let currentLang = localStorage.getItem('lang') || 'tr';
@@ -1239,7 +1348,11 @@
         // ── Mobile menu ────────────────────────────────────────────────────
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('nav ul');
-        mobileMenuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+        mobileMenuBtn.addEventListener('click', () => {
+            const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
+            navMenu.classList.toggle('active');
+        });
 
         // ── Smooth scrolling ───────────────────────────────────────────────
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1265,7 +1378,19 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href').slice(1) === current) link.classList.add('active');
             });
+
+            // Back-to-top visibility
+            const btn = document.getElementById('backToTop');
+            if (btn) {
+                if (window.scrollY > 500) btn.classList.add('show'); else btn.classList.remove('show');
+            }
         });
+
+        // Back to top smooth scroll
+        const backBtn = document.getElementById('backToTop');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
     </script>
 </body>
 </html>
